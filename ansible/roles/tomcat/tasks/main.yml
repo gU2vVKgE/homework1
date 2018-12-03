@@ -1,0 +1,16 @@
+---
+
+- name: Install and tomcat
+  yum:
+      name: tomcat
+      state: present
+      
+- name: Install java-devel
+  yum:
+      name: java-devel
+      state: present
+
+- name: Start tomcat
+  service:
+      name: tomcat
+      state: restarted

@@ -1,0 +1,11 @@
+---
+
+- name: Install java
+  yum:
+      name: java
+      state: present
+
+- name: Install java-devel
+  yum:
+      name: java-devel
+      state: present

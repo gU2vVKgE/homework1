@@ -1,0 +1,17 @@
+---
+
+- name: Import jenkins repo
+  shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo && rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+- name: Install jenkins
+  yum:
+      name: jenkins
+      state: present
+
+- name: Change jenkins port
+  raw: sed -i -e "s/JENKINS_PORT=\"8080\"/JENKINS_PORT=\"8088\"/g" /etc/sysconfig/jenkins
+
+- name: Start jenkins
+  service:
+      name: jenkins
+      state: restarted

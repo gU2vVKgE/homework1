@@ -1,0 +1,10 @@
+---
+
+- name: Build the pipeline
+  hosts: localhost
+  become: true
+
+  roles:
+    - common
+    - java
+    - jenkins
